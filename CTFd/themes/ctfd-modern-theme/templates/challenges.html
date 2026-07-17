@@ -226,6 +226,7 @@
                           'category-' + c.category.toLowerCase().replace(/[^a-z0-9]/g, '')
                         ]"
                         :data-category="c.category"
+                        :data-challenge-id="c.id"
                         @click="loadChallenge(c.id)"
                       >
                         

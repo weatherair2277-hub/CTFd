@@ -21,6 +21,13 @@
 
     <div class="collapse navbar-collapse" id="base-navbars">
       <ul class="navbar-nav me-auto">
+        {% set page_icons = {
+          '/bloods': 'fa-tint',
+          '/writeups': 'fa-file-signature',
+          '/faqs': 'fa-question-circle',
+          '/credits': 'fa-award',
+          '/disclaimers': 'fa-exclamation-triangle'
+        } %}
         {% for page in Plugins.user_menu_pages %}
           {% if page.route != '/writeups' or authed() %}
           <li class="nav-item">
@@ -33,7 +40,7 @@
               data-bs-placement="right"
               data-bs-custom-class="sidebar-tooltip"
             >
-              <i class="fas {{ 'fa-file-signature' if page.route == '/writeups' else 'fa-link' }} me-1 nav-icon"></i>
+              <i class="fas {{ page_icons.get(page.route, 'fa-link') }} me-1 nav-icon"></i>
               <span class="nav-label">{{ page.title }}</span>
             </a>
           </li>
